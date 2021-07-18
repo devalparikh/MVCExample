@@ -49,7 +49,7 @@ public class StudentService {
             student.setEmail(email);
         }
 
-        if(favNum != null && !Objects.equals((student.getFavNum()), favNum)) {
+        if(favNum != null) {
             student.setFavNum(favNum);
         }
     }
