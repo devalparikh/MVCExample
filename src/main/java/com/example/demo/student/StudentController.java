@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// API Layer
 @RestController
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
