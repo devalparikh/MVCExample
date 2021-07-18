@@ -3,6 +3,7 @@ package com.example.demo.student;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Random;
 
 @Entity
 @Table
@@ -23,6 +24,7 @@ public class Student {
     private LocalDate dob;
     @Transient // Not a column in db
     private Integer age;
+    private Integer favNum;
 
     public Student() {
     }
@@ -80,6 +82,19 @@ public class Student {
         this.age = age;
     }
 
+    public Integer getFavNum() {
+        Integer favNum = this.favNum;
+        if(favNum == null) {
+            Random ran = new Random();
+            favNum = ran.nextInt(6) + 5;
+        }
+        return favNum;
+    }
+
+    public void setFavNum(Integer favNum) {
+        this.favNum = favNum;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -88,6 +103,7 @@ public class Student {
                 ", email='" + email + '\'' +
                 ", dob=" + dob +
                 ", age=" + age +
+                ", favNum=" + favNum +
                 '}';
     }
 }

@@ -26,6 +26,7 @@ public class StudentController {
     @ResponseBody
     public Student registerNewStudent(@RequestBody Student student) {
         studentService.addNewStudent(student);
+        // Returns all attributes' get calls from the Student class
         return student;
     }
 
@@ -38,9 +39,10 @@ public class StudentController {
     public void updateStudent(
             @PathVariable("studentId") Long studentId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) String email
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) Integer favNum
     ) {
-        studentService.updateStudent(studentId, name, email);
+        studentService.updateStudent(studentId, name, email, favNum);
     }
 
 }

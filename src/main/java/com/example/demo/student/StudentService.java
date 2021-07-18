@@ -36,7 +36,7 @@ public class StudentService {
     }
 
     @Transactional
-    public void updateStudent(Long studentId, String name, String email) {
+    public void updateStudent(Long studentId, String name, String email, Integer favNum) {
         Student student = getExistingStudentById(studentId);
         if(name != null && name.length() > 0 && !Objects.equals((student.getName()), name)) {
             // allows duplicate names
@@ -47,6 +47,10 @@ public class StudentService {
             // does not allow duplicate emails
             checkIfEmailIsTaken(email);
             student.setEmail(email);
+        }
+
+        if(favNum != null && !Objects.equals((student.getFavNum()), favNum)) {
+            student.setFavNum(favNum);
         }
     }
 
